@@ -23,4 +23,5 @@ export const selectFieldFromApiConfigSchema = z.object({
   labelSelector: z.string().or(z.array(z.string())).optional(),
   title: z.string().optional(),
   description: z.string().optional(),
+  placeholder: z.string().optional(),
 });
