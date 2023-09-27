@@ -63,7 +63,11 @@ export const SelectFieldFromApi = (props: FieldProps<string>) => {
   const { formContext, uiSchema } = props;
   const options = selectFieldFromApiConfigSchema.parse(uiSchema['ui:options']);
 
-  const { title = 'Select', description = '' } = options;
+  const {
+    title = 'Select',
+    description = '',
+    placeholder = undefined,
+  } = options;
 
   const { error } = useAsync(async () => {
     const baseUrl = await discoveryApi.getBaseUrl('');
@@ -143,6 +147,7 @@ export const SelectFieldFromApi = (props: FieldProps<string>) => {
         items={dropDownData}
         label={title}
         onChange={props.onChange}
+        placeholder={placeholder}
         native
       />
       <FormHelperText>{description}</FormHelperText>
